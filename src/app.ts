@@ -1,6 +1,8 @@
 import express, { Express } from 'express';
+import cors from 'cors';
 
 const app: Express = express();
+app.use(cors());
 
 app.get('/health-check', (__, res) => {
   res.send('OK');
