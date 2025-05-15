@@ -1,0 +1,45 @@
+{
+  "name": "node-ts-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:dev": "rimraf dist && tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+    "build": "npm run lint:fix && rimraf dist && webpack --config webpack.config.js --mode production",
+    "dev": "nodemon --exec 'npm run build:dev && npm start' -e ts --ignore dist/",
+    "dev:inspect": "nodemon --exec 'npm run build:dev && node --inspect dist/index.js' -e ts --ignore dist/",
+    "install:clean": "npm i rimraf -D && rimraf node_modules package-lock.json && npm i",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "prepare": "husky install",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.24.1",
+    "@typescript-eslint/parser": "^8.24.1",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "husky": "^9.1.7",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.5.1",
+    "rimraf": "^6.0.1",
+    "ts-loader": "^9.5.2",
+    "tsc-alias": "^1.8.10",
+    "tsconfig-paths-webpack-plugin": "^4.2.0",
+    "typescript": "^5.7.3",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
