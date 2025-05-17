@@ -4,11 +4,11 @@ import cors from 'cors';
 const app: Express = express();
 app.use(cors());
 
-app.get('/health-check', (__, res) => {
+app.get('/api/health-check', (__, res) => {
   res.send('OK');
 });
 
-app.get('/', (__, res) => {
+app.get('/api', (__, res) => {
   res.send([
     'Following are from server',
     'Fortnite',
